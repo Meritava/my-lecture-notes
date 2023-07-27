@@ -6,7 +6,7 @@ import add
 #sum
 print(add.sum(3, 5))
 print(add.sumif(4, 4))
-#subkk
+#sub
 
 #mul
 
@@ -14,6 +14,12 @@ print(add.sumif(4, 4))
 """
 
 
-"""
+
 from add import sum
-"""
+from add import sumif
+from add import list_1
+
+print(sum(3, 5))
+print(sumif(4, 4))
+print(list_1)
+print(list_1[1]) #it prints the second element on the list

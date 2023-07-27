@@ -6,3 +6,5 @@ def sumif(a, b):
     if a > b:
         return a + b
     return "Error"
+
+list_1 = ["merit", "mercy", "special"]

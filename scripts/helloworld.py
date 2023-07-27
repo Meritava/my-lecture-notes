@@ -445,4 +445,8 @@ def sum(a, b):
     return a + b
 
 print(sum(2, 5))
+
+DATA STRUCTURES
+1. List
+2. Tuple
 """

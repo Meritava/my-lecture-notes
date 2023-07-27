@@ -6,7 +6,7 @@ import add
 #sum
 print(add.sum(3, 5))
 print(add.sumif(4, 4))
-#subkkk
+#subkk
 
 #mul
 

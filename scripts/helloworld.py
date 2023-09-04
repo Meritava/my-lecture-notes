@@ -10,8 +10,8 @@ int() changes to and int
 float() changes to a float
 complex data type are numbers with a letter j at the end
 different data types
-text type: string
-numeric type: int, float, complex
+text type: string, strings are values stored in quotes
+numeric type: int, float, complex... numeric data type are anything that is a number.. int is any whole number.. float is any number with a fractional part.. complex data type is any number with the letter j at the end
 sequence type: list, tuple, range
 mapping type: dictionary dict
 set: set, frozenset
@@ -50,7 +50,7 @@ print(capital)
 rep = NAME.replace("M", "Li")
 print(rep)
 print("{} is my name {}".format(name, age))
-print("{1} is my name {0}".format(name, age))   # it changes the position of the variable value
+print("{1} is my name {0}".format(name, age))   # it changes the position of the variable value, that is which variable should come first
 isTrue = False  #boolean data type
 print(5 > 10)
 """
@@ -64,12 +64,13 @@ identity operator: is, is not
 """
 a program that ask the user to enter his/her name. and the program
 should welcome the user with their name
+if you want to get the laast digit of any number, you module(%) the number by 10 i.ei number % 10 = last number
 """
 hername = input("please enter your name: ")
 herage = input("please enter your age: ")
 print("hello " + hername)
 print("you are {} years old".format(herage))
-
+# a program that ask the user for length and width and converts them to float numbers and multiplies them
 length = float(input("enter length: "))
 width = float(input("enter width: "))
 area = length * width
@@ -91,12 +92,13 @@ print(a[2])
 print(a["age"])
 """
 using str.format example
+Positional and keyword arguments used with string formatters give us more control over manipulating our original strings through reordering.
 open_string = "Sammy loves {}."
 print(open_string.format("open source"))
 output - Sammy loves open source.
 
-new_open_string = "Sammy loves {} {}."                      {} placeholders
-print(new_open_string.format("open-source", "software"))    Pass 2 strings into method, separated by a comma
+new_open_string = "Sammy loves {} {}."                      #{} 2 placeholders
+print(new_open_string.format("open-source", "software"))    #Pass 2 strings into method, separated by a comma
 Output
 Sammy loves open-source software.
 
@@ -109,6 +111,9 @@ Output
 Sammy the shark made a pull request.
 
 converting decimal to float
+We will use the format code syntax {field_name:conversion}, where field_name specifies the index number of the argument to the str.format() method that we went through in the reordering section, and conversion refers to the conversion code of the data type that you are using with the formatter.
+The conversion type refers to the the single-character type code that Python uses.
+ The codes that we will be using here are s for string, d to display decimal integers (10-base), and f which we’ll use to display floats with decimal places
 print("Sammy ate {0:f} percent of a {1}!".format(75, "pizza"))
 Output
 Sammy ate 75.000000 percent of a pizza!
@@ -124,6 +129,7 @@ Sammy ate 76 percent of a pizza!
 """
 
 """
+We can add a number to indicate field size (in terms of characters) after the colon : in the curly braces of our syntax:
 print("Sammy has {0:4} red {1:16}!".format(5, "balloons"))
 Output
 Sammy has    5 red balloons        !
@@ -139,6 +145,8 @@ By default, when we make a field larger with formatters, Python will fill the fi
 print("{:*^20s}".format("Sammy"))
 Output
 *******Sammy********
+
+We’re centering the string with ^, specifying that the field is 20 characters in size, and also indicating that we are working with a string conversion type by including s.
 """
 
 """
@@ -327,6 +335,14 @@ name = "merit ishekwene"
 while counter < size:
     print(name[counter].upper(), end="\n")
     counter = counter + 1
+
+limit = 10
+counter = 0
+name = "merit ishekwene"
+size = len(name)
+while counter < size:
+    print(name[counter].upper(), end="\n")
+    counter = counter + 1
 example 4
 check for even numbers and odd numbers
 limit = 20
@@ -339,18 +355,20 @@ while counter < limit:
     counter = counter + 1
 
 FOR LOOP
-numbers = range(10)
+numbers = range(10) #this is saying generate a range of ten numbers
 for me in numbers:
     print(me)
     OR
-    for me in range(10)
-    print(me)
+    for number in range(10)
+    print(number)
 another example 
 for number in range(10):
     if number % 2 == 0:
         print("lucky number {}".format(number))
+
+    example:
 for each_character in "merit":
-print(character.upper(), end="")
+print(each_character.upper(), end="")
 membership operator: in, not in
 identity operator: is, is not
 example:
@@ -430,6 +448,9 @@ def greet_people(*people):
         print("How do you do {}?".format(persons))
 
 greet_people("merit", "mercy", "dami")
+
+example:
+def
 """
 
 # Tuesday lecture 25th July 2023
@@ -449,4 +470,257 @@ print(sum(2, 5))
 DATA STRUCTURES
 1. List
 2. Tuple
+
+print(list_2[2]) #this prints the third element on list_2
+"""
+
+
+
+# temp_value = float(input("input your temp value "))
+# def converting(value):
+#     converted_value = (5 / 9) * (value - 32)
+#     return converted_value
+
+# def convert_to_celsius(fahrenheit):
+#     user_value = converting(fahrenheit)
+#     print("Your temp is {}".format(user_value))
+
+# convert_to_celsius(temp_value)
+
+
+
+# for i in range(100):
+#     print("{:02d}".format(i),end=", ")
+#     if i < 99:
+#         print(end="\n")
+
+
+#PYTHON IMPORT MODULE
+"""
+If you intend to use a function often you can assign it to a local name:
+>>> fib = fibo.fib
+>>> fib(500)
+1 1 2 3 5 8 13 21 34 55 89 144 233 377 
+note here, the name of the module file is fibo and it has a function inside fib
+
+we can also import several function like this: from fibo import fib, fib2  .. seperating the function with a comma
+to import all files: from fibo import *  ... note fibo is the module file name
+
+Note For efficiency reasons, each module is only imported once per interpreter session. Therefore, if you change your modules, you must restart the interpreter – or, if it’s just one module you want to test interactively, use imp.reload(), e.g. import imp; imp.reload(modulename).
+#Handling exception error:
+try:
+    aList = [1, 2, 3]
+    print(aList[3])
+ except indexError:  #you can also catch multiple errors: except (indexError, NameError)
+    print("that index doesnt exist")
+ except:
+    print("an unknown error occured")
+
+    example: how finally is used
+    num1, num2 = input("enter two values for division ").split()
+try:
+    quotient = int(num1) / int(num2)
+
+    print("{} / {} = {}".format(num1, num2, quotient))
+except ZeroDivisionError:
+    print("you cant divide by zero")
+else:
+    print("you didnt rasie an exception")
+finally:
+    print("i execute no matter what")
+
+example: how rasie is used
+
+"""
+
+"""
+27TH LECTURE - PYTHON CLASSESS & OBJECTS, INHERITANCE
+user-defined data structure
+Class - a class is a blueprint in which we are going to base our development on... it should be able to allow us model anything we want to model in our programming
+the class is the blueprint on which you build other object. you can use a class to build as many copies of object as you want
+A class is a collection of attribute and behaviour
+Object - it is the actual product created from a class
+Istatiation - the process of creating an object from a class
+4 principles of object oriented programming
+1. Encapsulation - it allows us to create a container for our code and only the one you give access to that's the o people will get access to
+2. Inheritance - we create instances that are able to inherit from the parent class...example:
+animal class(attribute and behaviour)
+dog class (this dog class can inherit some attribute and behaviour from the animal class)
+breed of dogs class (it can inherit from the dog class)
+3.Polymorphism - attribute and behaviour should be common aboung every element using the class... example, when writing a class for the animal, you can not incluse wing as attribute because not all animal have wing
+but if you are creating a bird classes, you can include wing, because all bird have wings
+4.Abstraction - all you care about is how it functions. example the print function, you dont see abstract, the function(print example) has  been abstract from you
+"""
+
+#DATA STRUCTURE LISTS 7 tuples
+"""
+squares = list(map(lambda x: x**2, range(10)))
+or, equivalently:
+squares = [x**2 for x in range(10)]
+
+example:
+>>> [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+or, equivalently:
+>>> combs = []
+>>> for x in [1,2,3]:
+...     for y in [3,1,4]:
+...         if x != y:
+...             combs.append((x, y))
+...
+>>> combs
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+
+#LEARN TO PROGRAM VIDEO - LIST
+onetoten = list(range(10))
+randlist = ["string", 12.44 8]
+onetoten = list(range(10))
+examplelist = ["meeri", 2929.44, 4]
+examplelist = onetoten + examplelist
+print(examplelist[0])
+print(len(examplelist))
+first3 = examplelist[0:3]
+for i in first3:
+    print("{} : {}".format(first3.index(i), i))
+print(first3[0] * 3)  #it prints the first element three times
+print("whatyou" in first3) #check if whatyou is inside of first3 list, will return a true or false value
+print(first3.index("whatyou"))  #to print the index if the string is found
+print(first3.count(4)) #to check how many times 4 occurs
+first3[0] = "merit"  #change the element in the string who's index is 0
+first3.append("another")  #adds another to the list
+"""
+"""
+#create a list of five random items between 1 to 9
+import random
+import math
+numList = []
+for i in range(5):
+    numList.append(random.randrange(1, 10))
+
+for i in numList:
+    print(i)
+
+numList = []
+numList.sort()  #sorts a list
+numList.reverse()  #reverse sort
+numList.insert
+numList.insert(5, 10)  #means 10 should be insert to the 5th index
+numList.remove(10)  #it removes the value 10
+numList.pop(2)  #removes whatever is in the second index
+"""
+eventList = [i*2 for i in range(10)]  #i*2 is the operation to be performed on the list, the the for statement defines the list
+for i in eventList:
+    print(i)
+
+
+
+"""
+#Performing list(d.keys()) on a dictionary returns a list of all the keys used in the dictionary
+if you want it sorted, just use sorted(d.keys())
+example of a dictionary:
+tel = {'jack': 4098, 'sape': 4139}
+When looping through a sequence, the position index and corresponding value can be retrieved at the same time using the enumerate() function.
+>>> for i, v in enumerate(['tic', 'tac', 'toe']):
+...     print(i, v)
+...
+0 tic
+1 tac
+2 toe
+note, in comparison operators, not has the highest priority and or the lowest. As always, parentheses can be used to express the desired composition
+The comparison operators in and not in check whether a value occurs (does not occur) in a sequence. The operators is and is not compare whether two objects are really the same object; this only matters for mutable objects like lists
+>>> tel = {'jack': 4098, 'sape': 4139}
+>>> tel['guido'] = 4127
+>>> tel
+{'sape': 4139, 'guido': 4127, 'jack': 4098}
+>>> tel['jack']
+4098
+>>> del tel['sape']
+>>> tel['irv'] = 4127
+>>> tel
+{'guido': 4127, 'irv': 4127, 'jack': 4098}
+>>> list(tel.keys())
+['irv', 'guido', 'jack']
+>>> sorted(tel.keys())
+['guido', 'irv', 'jack']
+>>> 'guido' in tel
+True
+>>> 'jack' not in tel
+False
+
+
+
+#LAMBDA: is used when you do not want to create too many function
+sum = lambda x, y: x + y   #the sum is the function, the first statement x, y are the two attributes asigned, then x + y is the operattion to be performed on the attributes.
+print(sum(4, 5))   #calling the lambda sum function
+another example:
+can_vote = lambda age: True if age >= 18 else False
+print(can_vote(16))  #calling the function and passing a value 16
+example:
+powerList = [lambda x: x ** 2,
+            lambda x: x ** 2,
+            lambda x: x ** 2]
+
+for func in powerList:
+    print(func(4))
+
+
+The lambda operator or lambda function is a way to create small anonymous functions, i.e. functions without a name...they are just needed where they have been created
+syntax:
+lambda argument_list: expression
+
+#The Map() function
+ map() is a function which takes two arguments:
+r = map(func, seq)
+"""
+
+"""
+#Understanding Lambda function
+lambda args1, args2,... :then followed by what ever you want to do with the arguments
+lambda is use when you need a small function and do not want to put several function i your code
+the -> str means we are returning a string
+def random_func(name: str, age: int, weight: float) -> str:
+    print("Name: ", name)
+    print("Age: ", age)
+    print("Weight: ", weight)
+
+    return "My name is {} and I am {} years old. And I weigh {}".format(name, age, weight)
+
+print(random_func(24, "Merit", 5.5))    #it will print the value as it appers here
+
+example:
+sum = lambda x, y: x + y
+print(sum(2, 5))
+can_vote = lambda age: True if age >= 18 else False
+print(can_vote(19))
+example:
+powerList = [lambda x: x ** 2,
+            lambda x: x ** 3,
+            lambda x: x ** 4]
+
+for func in powerList:
+    print(func(4))
+
+#storing lamda inside dictionaries
+#MAP
+map lets us execute a function on each item on a list
+example:
+ontoten = range(1, 11)
+def dubn(num):
+    return num * 2
+print(list(map(dubn, ontoten)))   #we added the list to convert whatsoever the result of the map was into a list
+using lambda, you can just pass in the function directly
+print(list(map((lambda x: x * 2), ontoten)))
+we can also perform calculation against multiple different list
+aList = list(map((lambda x, y: x + y), [1, 3, 5], [3, 4, 4]))
+print(aList)
+#filter select item from a list based of a function
+print(list(filter((lambda x: x % 2 == 0), range(1, 11))))
+#find multiple of 9 in random 100 numbers within the range of 1 to 1000
+import random
+randList = list(random.randint(1, 1001) for i in range(100))  #first generate the list
+print(list(filter((lambda x: x % 9 == 0), randList)))
+#REDUCE reduce a lis and return a single result
+from functools import reduce
+#add up the values 
+print(reduce((lambda x, y: x + y), range(1, 6)))
 """

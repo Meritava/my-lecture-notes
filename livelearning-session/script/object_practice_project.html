@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+    
+
+
+
+    <script>
+        const person = {
+          name: {
+          first: "Bob",
+          last: "Smith",
+          },
+            age: 32,
+            bio() {
+              console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old.`);
+            },
+            introduceSelf() {
+              console.log(`Hi! I'm ${this.name[0]}.`);
+            },
+        };
+        //setting object properties
+        person.age = 45;
+        person["name"]["last"] = "Cratchit";
+        //creating new members
+        person["eyes"] = "hazel";
+        person.farewell = function () {
+          console.log("Bye everybody!");
+        };
+        // creating a property
+        const myDataName = "height";
+        const myDataValue = "1.75m";
+        person[myDataName] = myDataValue;
+        //constructor
+        function Person(name) {
+        this.name = name;
+        this.introduceSelf = function () {
+          console.log(`Hi! I'm ${this.name}.`);
+        };
+      }
+      //To call Person() as a constructor, we use new:
+      const salva = new Person("Salva");
+      salva.name;
+      salva.introduceSelf();
+      // "Hi! I'm Salva."
+
+      const frankie = new Person("Frankie");
+      frankie.name;
+      frankie.introduceSelf();
+      // "Hi! I'm Frankie."
+      //CLASSES IN JS
+      class Person {
+            name;
+
+            constructor(name) {
+              this.name = name;
+            }
+
+            introduceSelf() {
+              console.log(`Hi! I'm ${this.name}`);
+            }
+          }
+         // a name property.
+          //a constructor that takes a name parameter that is used to initialize the new object's name property
+          //an introduceSelf() method that can refer to the object's properties using this.
+          //Given the class declaration code above, you can create and use a new Person instance like this
+          const giles = new Person("Giles");
+          giles.introduceSelf(); // Hi! I'm Giles
+          //INHERITANCE
+          class Professor extends Person {
+              teaches;
+
+              constructor(name, teaches) {
+                super(name);
+                this.teaches = teaches;
+              }
+
+              introduceSelf() {
+                console.log(
+                  `My name is ${this.name}, and I will be your ${this.teaches} professor.`,
+                );
+              }
+
+              grade(paper) {
+                const grade = Math.floor(Math.random() * (5 - 1) + 1);
+                console.log(grade);
+              }
+            }
+            //using the code
+            const walsh = new Professor("Walsh", "Psychology");
+            walsh.introduceSelf(); // 'My name is Walsh, and I will be your Psychology professor'
+            walsh.grade("my paper"); // some random grade
+            //another class
+            class Student extends Person {
+                #year;    //In this class declaration, #year is a private data property.
+
+                constructor(name, year) {
+                  super(name);
+                  this.#year = year;
+                }
+
+                introduceSelf() {
+                  console.log(`Hi! I'm ${this.name}, and I'm in year ${this.#year}.`);
+                }
+
+                canStudyArchery() {
+                  return this.#year > 1;
+                }
+              }
+              //You can have private methods as well as private data properties.
+              class Example {
+                  somePublicMethod() {
+                    this.#somePrivateMethod();
+                  }
+
+                  #somePrivateMethod() {
+                    console.log("You called me?");
+                  }
+                }
+
+                const myExample = new Example();
+
+                myExample.somePublicMethod(); // 'You called me?'
+
+                myExample.#somePrivateMethod(); // SyntaxError
+
+                //Class definition, three ways of defining a class
+                // Declaration
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+// Expression; the class is anonymous but assigned to a variable
+const Rectangle = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+
+// Expression; the class has its own name
+const Rectangle = class Rectangle2 {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+//Using private fields, the definition can be refined as below.
+class Rectangle {
+  #height = 0;
+  #width;
+  constructor(height, width) {
+    this.#height = height;
+    this.#width = width;
+  }
+}
+
+
+
+
+    </script>
+  </body>
+
+</html>

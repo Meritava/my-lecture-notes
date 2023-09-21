@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+    <!-- creating an object often begins with defining and initializing a variable. -->
+    <script>
+        const person = {
+             //accessing this would be person.name or person["name"];
+            // name: ["Bob", "Smith"],
+            //changing name property to object. an object can contain an object
+            //accessing this would be person.name.first or this person["name"]["first"];
+            name: {
+                 first: "Bob",
+                 last: "Smith",
+            },
+            age: 32,
+            //accessing this would be person.bob()
+            bio: function () {
+                console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old.`);
+            },
+           /*
+           bio property is a function and can also be written as this:
+             bio() {
+                console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old.`);
+             },
+          */
+            introduceSelf: function () {
+                console.log(`Hi! I'm ${this.name[0]}.`);
+            },
+            /*
+            introduceSelf() {
+                console.log(`Hi! I'm ${this.name[0]}.`);
+            }
+            */
+        };
+        /*
+        function logProperty(propertyName) {
+        console.log(person[propertyName]);
+        }
+        
+        logProperty("name");
+        // ["Bob", "Smith"]
+        logProperty("age");
+        // 32
+        */
+
+        //modifying the object
+        person.age = 45;
+        person["name"]["last"] = "Cratchit";
+        //adding properties to the function
+        person["eyes"] = "hazel";
+        person.farewell = function () {
+        console.log("Bye everybody!");
+        };
+
+
+        //One useful aspect of bracket notation is that it can be used to set not only member values dynamically, but member names too. Let's say we wanted users to be able to store custom value types in their people data, by typing the member name and value into two text inputs. We could get those values like this:
+        
+        const myDataName = "height";
+        const myDataValue = "1.75m";
+        person[myDataName] = myDataValue;
+
+
+        //creating another object.This function creates and returns a new object each time we call it. The object will have two members:a property name and a method introduceSelf().
+        //Note that createPerson() takes a parameter name to set the value of the name property, but the value of the introduceSelf() method will be the same for all objects created using this function. This is a very common pattern for creating objects.
+        function createPerson(name) {
+        const obj = {};
+        obj.name = name;
+        obj.introduceSelf = function () {
+          console.log(`Hi! I'm ${this.name}.`);
+        };
+        return obj;
+      }
+      //Now we can create as many objects as we like, reusing the definition:
+      const salva = createPerson("Salva");
+      salva.name;
+      salva.introduceSelf();
+      // "Hi! I'm Salva."
+
+      const frankie = createPerson("Frankie");
+      frankie.name;
+      frankie.introduceSelf();
+      // "Hi! I'm Frankie."
+
+    </script>
+  </body>
+
+</html>

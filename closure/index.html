@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text title</title>
+</head>
+<body>
+    <!-- note parenthesis() at the front of a sentence/word shows that it is a function -->
+    <h1>Hello Merit</h1>
+    <p id="para1">This is Cole's tutorial</p>
+    <p id="para2">And I am learning</p>
+    <div>
+        <span class="icons">some icon</span>
+        <span class="icons">some icon 2</span>
+        <span class="icons">some icon 3</span>
+    </div>
+    <button id="primary_btn">click me</button>
+    <script>
+        //JS have many eventListener click, dblclick, mouseover, mouseout, keyup, keydown
+        const btn = document.getElementById("primary_btn");    //this gets te button on our html page whose id is primary_btn
+        let counter = 0;
+        const colors = ['red', 'gold', 'blue', 'green', 'black']
+        // btn.addEventListener('click', function () {            //here we register/add an event linester to the button we created.. the add eventListerner is a function and it takes two argument, the click which is an event and a function as the secong argument
+        //     if (counter < colors.length) {
+        //         // console.log("Hello " + colors[counter++])
+        //         document.body.style.backgroundColor = colors[counter++];
+        //         document.body.style.fontSize = '30px';
+        //     } else {
+        //         counter = 0;
+        //     }
+        // })
+        setInterval(function () {
+            if (counter < colors.length) {
+                // console.log("Hello " + colors[counter++])
+                document.body.style.backgroundColor = colors[counter++];
+                document.body.style.fontSize = '30px';
+            } else {
+                counter = 0;
+            }
+        }, 9000);
+        /*
+        const btn = document.createElement("button");    //this creates a button element
+        const btnText = document.createTextNode("click me");   // this writes text for the button element you created
+        button.append(btnText);    //this then writes/appends/add the text to the button element
+        document.body.appendChild(button);   //this adds the button to the body/document - it adds the button to our page
+        */
+        /*
+        document.getElementsByTagName("p");   //it gets the p element/tag
+        document.getElementsByClassName("icons");
+        document.getElementsByClassName("icons")[1];  //gets the second span element
+        document.getElementById("para2");
+        const body = document.body;
+        const button = document.createElement("button");
+        button.setAttribute('id', 'primary-btn')
+        const btnText = document.createTextNode("click me");
+        button.append(btnText);
+
+        const division = document.createElement("div");
+        const para = document.createElement("p");  //to create element
+        para.innerHTML =  "Explaining paragraph";
+        division.appendChild(para);
+        body.appendChild(button);
+        body.appendChild(division)
+        */
+       /*
+        createElement()  //to create element
+        createTextNode()  //to write inside an element
+        remove()  //to remove element
+        setAttribute()  //set attribute
+        innerHTML - properties
+        innerText - property
+        style - property
+        const body = document.body;  //this stores document.body in a variable, so we can rewrite
+        const btn = document.createElement("button");    //this creates a button element
+        button.setAttribute('id', 'primary-btn')  //this adds attribute to the button
+        const btnText = document.createTextNode("click me");   // this writes text for the button element you created
+        button.append(btnText);    //this then writes/appends/add the text to the button element
+        //document.body.appendChild(button);   //this adds the button to the body/document - it adds the button to our page
+        body.appendChild(button); //this is same as the line above it  but this adds the button below the script tag
+
+
+
+
+        const division = document.createElement("div");
+        const para = document.createElement("p");
+        para.innerHTML =  "Explaining paragraph";   //this adds text to the para/p you just created
+        division.appendChild(para);  //this adds the para/p to the div/division
+        body.appendChild(division);   //this adds the div element to the document/body.... recall we created a variable body = document.body
+
+       */
+      
+    </script>
+</body>
+</html>

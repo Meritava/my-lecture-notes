@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <label for="">Character counter</label>
+        <textarea name="" id="characters-field" cols="30" rows="10"></textarea>
+    </div>
+    <p id="display"></p>
+
+    <script>
+        const textArea = document.getElementById('characters-field');   //this gets the textarea
+        let counter = 0;      //the value in counter would be changing so we use let to declear it
+        const ignorekeys = ['Backspace', 'Shift', 'Control', 'CapsLock', 'Enter', 'Alt']
+        textArea.onkeydown = function (event) {     //event was passed in as a parameter
+            const output = document.getElementById('display');
+            let keyStroke = event.key;
+            if (!ignorekeys.includes(keyStroke)) {
+                counter = counter + 1;    //this is saying whenever a key is entered(textArea.onkeydown) increment counter
+            }
+            else if (keyStroke === 'Backspace' && counter > 0) {
+                counter = counter - 1;
+            }
+            if (counter >= 50) {
+                alert("Maximum counter should be " + counter);
+                return;    //return returns you away from the function
+            }
+            console.log("Hello " + event.key)    //the key is use to show the key(on your keyboard) the user types, that is the event/parameter the entered. event here can be anything, it's a parameter. even is also an object. i think event is also a key word you can try with other examples bu here event is a parameter
+            output.textContent = counter;   //textContent is a property, counter is outputted on the paragraph
+        }
+        // console.log(textArea);  //this output/display the textarea on your console
+    </script>
+</body>
+</html>

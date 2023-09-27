@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+</head>
+<body>
+    <p>Cookies are piece of data stored on your browser. Cookies are sent along with request to the server
+        cookies work with key value pair, 'name=value'
+        the path is the path that is allowed to access the cookie
+        cookies: username=merit; field=oil & gas; expires=Tues, 19 Sept 2023  10:26 GMT; path=/docs;
+        every cookie should have an expiration date
+        document.cookie to access the cookie
+        if no expiration is included in the cookies it is set to session as default
+    </p>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script>
+        localStorage.setItem("products", JSON.stringify(['phones', 'fruits']))  //this stores the array on your local storage
+        localStorage.setItem("player", JSON.stringify({
+            name: 'Ava Merit',
+            grade: 'A',
+            score: 80
+        }));
+        sessionStorage.setItem("products", JSON.stringify(['phones', 'fruits']))  //this stores the array on your local storage
+        sessionStorage.setItem("player", JSON.stringify({
+            name: 'Ava Merit',
+            grade: 'A',
+            score: 80
+        }));
+        const products = JSON.parse(sessionStorage.getItem('products'))
+        console.table(products);
+        const player = JSON.parse(sessionStorage.getItem(player))
+        console.table(player);
+
+        Cookies.set('name', 'Ava');
+        const user = {
+            name: 'Ava Merit',
+            grade: 'A',
+            score: 80
+        }
+        Cookies.set('user1', JSON.stringify(user), {
+            expires: 3
+        })   //this set user to cookie
+        Cookies.remove('name');    //this remove the name cookie
+        const score = JSON.parse(Cookies.get('user1')).score
+        console.log(score)
+        // const cookie = 'username=merit; currentScore=17;';
+        // document.cookie = cookie;
+        // console.log(document.cookie)
+    </script>
+</body>
+</html>

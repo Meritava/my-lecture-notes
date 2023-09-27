@@ -39,11 +39,18 @@
     const indicators = ['red', 'gold', 'green'];
     let indicatorPosition = 0;
     function indicatorChnager () {
+        if (indicatorPosition === indicators.length) {
+            lights[indicatorPosition - 1].style.backgroundColor = 'white';
+            indicatorPosition = 0;
+        }
+        else if (indicatorPosition > 0 && indicatorPosition < indicators.length)
+        {
+            lights[indicatorPosition - 1].style.backgroundColor = 'white';
+        }
         lights[indicatorPosition].style.backgroundColor = indicators[indicatorPosition];
         indicatorPosition = indicatorPosition + 1;
     }
     setInterval(indicatorChnager, 2000);
-
     console.log(lights);
    </script>
 </body>
